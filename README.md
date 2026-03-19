@@ -18,11 +18,15 @@ Implemented components:
 
 ```text
 GAN-cmfd/
+├── checkpoints/
+│   ├── best_model.pth
+│   └── G_epoch_*.pth
 ├── dataset.py
 ├── evaluate_comofod.py
 ├── metrics.py
 ├── models.py
 ├── prepare_data.py
+├── .gitattributes
 ├── results/
 │   └── comofod_test_results.json
 └── README.md
@@ -35,6 +39,24 @@ Use Python 3.9+ (recommended), then install dependencies:
 ```bash
 pip install torch torchvision pillow numpy scikit-learn scikit-image
 ```
+
+## Checkpoints in GitHub (Git LFS)
+
+This repository tracks model checkpoints with **Git LFS**.
+
+- Tracked pattern: `checkpoints/*.pth`
+- Config file: `.gitattributes`
+
+When cloning, run:
+
+```bash
+git lfs install
+git clone https://github.com/mainak569/GAN-cmfd.git
+cd GAN-cmfd
+git lfs pull
+```
+
+If Git LFS is not installed, checkpoint files may appear as small pointer text files instead of full binary weights.
 
 ## Dataset Assumptions (CoMoFoD)
 
@@ -170,14 +192,14 @@ From `results/comofod_test_results.json`:
 ## End-to-End Quick Start
 
 1. Install dependencies
-2. Set CoMoFoD path in `prepare_data.py`
-3. Generate splits:
+2. Ensure Git LFS files are fetched (checkpoint weights):
+   ```bash
+   git lfs pull
+   ```
+3. Set CoMoFoD path in `prepare_data.py`
+4. Generate splits:
    ```bash
    python prepare_data.py
-   ```
-4. Place trained checkpoint at:
-   ```text
-   checkpoints/best_model.pth
    ```
 5. Run test evaluation:
    ```bash
@@ -197,7 +219,7 @@ From `results/comofod_test_results.json`:
 - Add `train.py` and checkpointing workflow
 - Move all hardcoded config values to CLI args or YAML
 - Add a `requirements.txt` and/or environment file
-- Add a `.gitignore` (`.DS_Store`, `data/`, `checkpoints/`, etc.)
+- Add a `.gitignore` (`.DS_Store`, `data/`, etc.)
 - Add sample visualization script for predictions vs. masks
 
 ## Citation / Dataset
