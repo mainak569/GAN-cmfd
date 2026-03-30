@@ -6,6 +6,11 @@ Copy-Move Forgery Detection (CMFD) evaluation pipeline using a UNet-style genera
 
 This repository currently focuses on **dataset preparation** and **model evaluation** for copy-move forgery segmentation.
 
+### Model Variations
+- **Base 1**: Ablation with basic GAN
+- **Base 2**: Ablation with only UNet
+- **Final (Our model)**: UNet based patch GAN
+
 Implemented components:
 - Leak-free train/val/test split generation from CoMoFoD variants
 - `torch.utils.data.Dataset` for paired forged image + binary mask loading
