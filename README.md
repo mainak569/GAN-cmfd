@@ -1,6 +1,32 @@
+<div align="center">
+
 # GAN-cmfd
 
-Copy-Move Forgery Detection (CMFD) evaluation pipeline using a UNet-style generator (Pix2Pix-inspired), PatchGAN discriminator definition, CoMoFoD data preparation, and pixel/region-level segmentation metrics.
+**Copy-Move Forgery Detection (CMFD) evaluation pipeline — UNet-style generator, PatchGAN discriminator, and pixel/region-level segmentation metrics on CoMoFoD.**
+
+<a href="https://www.python.org"><img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white" alt="Python 3.9+" /></a>
+<a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-DL_Framework-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch" /></a>
+<a href="https://pytorch.org/vision/stable/index.html"><img src="https://img.shields.io/badge/torchvision-Image_Utils-EE4C2C?logo=pytorch&logoColor=white" alt="torchvision" /></a>
+<a href="https://numpy.org"><img src="https://img.shields.io/badge/NumPy-Array_Ops-013243?logo=numpy&logoColor=white" alt="NumPy" /></a>
+<br />
+<a href="https://python-pillow.org"><img src="https://img.shields.io/badge/Pillow-Image_IO-3776AB" alt="Pillow" /></a>
+<a href="https://scikit-learn.org"><img src="https://img.shields.io/badge/scikit--learn-Metrics-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn" /></a>
+<a href="https://scikit-image.org"><img src="https://img.shields.io/badge/scikit--image-Region_Metrics-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-image" /></a>
+<a href="https://git-lfs.com"><img src="https://img.shields.io/badge/Git_LFS-Checkpoints-F64935?logo=git&logoColor=white" alt="Git LFS" /></a>
+
+<p>
+  <a href="#overview">Overview</a> ·
+  <a href="#repository-structure">Repository Structure</a> ·
+  <a href="#data-preparation">Data Preparation</a> ·
+  <a href="#models">Models</a> ·
+  <a href="#evaluation">Evaluation</a> ·
+  <a href="#metrics">Metrics</a> ·
+  <a href="#end-to-end-quick-start">Quick Start</a>
+</p>
+
+</div>
+
+---
 
 ## Overview
 
