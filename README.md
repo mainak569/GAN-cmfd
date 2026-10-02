@@ -31,7 +31,7 @@
 
 ## Demo Video
 
-https://github.com/user-attachments/assets/bf8b4ede-a26d-4ad8-af53-814c04f2bccf
+https://github.com/user-attachments/assets/9a106d25-76b3-4e7e-acb3-577af628905a
 
 A 7-minute walkthrough of the project: the CoMoFoD grouped split, the repository, the U-Net generator and PatchGAN discriminator, the training objective, inference, test results, qualitative results, the ablation study, limitations and future work.
 
