@@ -15,6 +15,7 @@
 <a href="https://git-lfs.com"><img src="https://img.shields.io/badge/Git_LFS-Checkpoints-F64935?logo=git&logoColor=white" alt="Git LFS" /></a>
 
 <p>
+  <a href="#demo-video">Demo Video</a> ·
   <a href="#overview">Overview</a> ·
   <a href="#repository-structure">Repository Structure</a> ·
   <a href="#data-preparation">Data Preparation</a> ·
@@ -28,9 +29,15 @@
 
 ---
 
+## Demo Video
+
+https://github.com/user-attachments/assets/bf8b4ede-a26d-4ad8-af53-814c04f2bccf
+
+A 7-minute walkthrough of the project: the CoMoFoD grouped split, the repository, the U-Net generator and PatchGAN discriminator, the training objective, inference, test results, qualitative results, the ablation study, limitations and future work.
+
 ## Overview
 
-This repository currently focuses on **dataset preparation** and **model evaluation** for copy-move forgery segmentation.
+This repository contains **dataset preparation**, **model definitions**, the **training script**, the **trained checkpoint**, and **evaluation** for copy-move forgery segmentation.
 
 ### Model Variations
 - **Base 1**: Ablation with basic GAN
@@ -42,6 +49,7 @@ Implemented components:
 - `torch.utils.data.Dataset` for paired forged image + binary mask loading
 - UNet-style generator architecture (for mask prediction)
 - PatchGAN discriminator architecture definition (not used in evaluation script)
+- GAN training loop with adversarial + weighted BCE + Dice loss (`train_gan.py`)
 - Pixel-level and region-level segmentation metrics
 - JSON export of test metrics
 
@@ -49,6 +57,8 @@ Implemented components:
 
 ```text
 GAN-cmfd/
+├── base_1/              # ablation: basic GAN (no skip connections)
+├── base_2/              # ablation: U-Net only (no PatchGAN)
 ├── checkpoints/
 │   ├── best_model.pth
 │   └── G_epoch_*.pth
@@ -57,6 +67,7 @@ GAN-cmfd/
 ├── metrics.py
 ├── models.py
 ├── prepare_data.py
+├── train_gan.py
 ├── .gitattributes
 ├── results/
 │   └── comofod_test_results.json
@@ -240,17 +251,13 @@ From `results/comofod_test_results.json`:
 
 ## Known Limitations
 
-- No training script is included in this repository yet.
 - `prepare_data.py` currently uses a hardcoded absolute CoMoFoD path.
 - Thresholds, resize size, and paths are hardcoded in scripts.
-- `.DS_Store` is currently tracked in git and should ideally be ignored.
 
 ## Suggested Next Improvements
 
-- Add `train.py` and checkpointing workflow
 - Move all hardcoded config values to CLI args or YAML
 - Add a `requirements.txt` and/or environment file
-- Add a `.gitignore` (`.DS_Store`, `data/`, etc.)
 - Add sample visualization script for predictions vs. masks
 
 ## Citation / Dataset

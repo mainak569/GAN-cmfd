@@ -14,3 +14,7 @@ env/
 # Project-generated data/artifacts
 data/
 results/
+
+# Demo video files (hosted on GitHub / YouTube, not tracked)
+video/
+*.mp4
